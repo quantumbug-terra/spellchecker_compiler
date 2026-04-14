@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Spelling Correction System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>✏️ English Spelling Correction System</h1>
+            <p>Real-time spelling and grammar checking using compiler-based approach</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="wrapper">
+                <!-- Input Section -->
+                <section class="section input-section">
+                    <h2>Input Text</h2>
+                    <textarea 
+                        id="inputText" 
+                        placeholder="Enter text here... (e.g., 'Helo wrld, how are you?')"
+                        rows="6"
+                    ></textarea>
+                    <div class="button-group">
+                        <button id="checkBtn" class="btn btn-primary">Check Text</button>
+                        <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                    </div>
+                </section>
+
+                <!-- Results Section -->
+                <section class="section results-section">
+                    <h2>Analysis Results</h2>
+                    
+                    <!-- Loading Spinner -->
+                    <div id="loading" class="loading hidden">
+                        <div class="spinner"></div>
+                        <p>Analyzing text...</p>
+                    </div>
+
+                    <!-- Error Messages -->
+                    <div id="errorMsg" class="error-message hidden"></div>
+
+                    <!-- Statistics -->
+                    <div id="stats" class="stats hidden">
+                        <div class="stat-item">
+                            <span class="stat-label">Total Words:</span>
+                            <span id="totalWords" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Errors Found:</span>
+                            <span id="totalErrors" class="stat-value error">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Spelling Errors:</span>
+                            <span id="spellingErrors" class="stat-value warning">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Grammar Errors:</span>
+                            <span id="grammarErrors" class="stat-value info">0</span>
+                        </div>
+                    </div>
+
+                    <!-- Tokens Display -->
+                    <div id="tokensSection" class="tokens-section hidden">
+                        <h3>Lexical Tokens</h3>
+                        <div id="tokensList" class="tokens-list"></div>
+                    </div>
+
+                    <!-- Spelling Errors -->
+                    <div id="spellingSection" class="errors-section hidden">
+                        <h3>Spelling Errors</h3>
+                        <div id="spellingErrorsList" class="errors-list"></div>
+                    </div>
+
+                    <!-- Grammar Errors -->
+                    <div id="grammarSection" class="errors-section hidden">
+                        <h3>Grammar Errors</h3>
+                        <div id="grammarErrorsList" class="errors-list"></div>
+                    </div>
+
+                    <!-- Corrected Text -->
+                    <div id="correctedSection" class="corrected-section hidden">
+                        <h3>Corrected Text</h3>
+                        <div id="correctedText" class="corrected-text-box"></div>
+                        <button id="copyBtn" class="btn btn-small">📋 Copy Corrected Text</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built with Python Flask • Lexical Analysis • Spelling Validation • Grammar Checking</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
