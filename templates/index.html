@@ -20,14 +20,64 @@
                 <!-- Input Section -->
                 <section class="section input-section">
                     <h2>Input Text</h2>
-                    <textarea 
-                        id="inputText" 
-                        placeholder="Enter text here... (e.g., 'Helo wrld, how are you?')"
-                        rows="6"
-                    ></textarea>
-                    <div class="button-group">
-                        <button id="checkBtn" class="btn btn-primary">Check Text</button>
-                        <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                    
+                    <!-- Tab Navigation -->
+                    <div class="tab-navigation">
+                        <button id="textTab" class="tab-btn active" onclick="switchTab('text')">
+                            ✍️ Type Text
+                        </button>
+                        <button id="fileTab" class="tab-btn" onclick="switchTab('file')">
+                            📁 Upload File
+                        </button>
+                    </div>
+
+                    <!-- Text Input Tab -->
+                    <div id="textInputTab" class="tab-content active">
+                        <textarea 
+                            id="inputText" 
+                            placeholder="Enter text here... (e.g., 'Helo wrld, how are you?')"
+                            rows="6"
+                        ></textarea>
+                        <div class="button-group">
+                            <button id="checkBtn" class="btn btn-primary">Check Text</button>
+                            <button id="clearBtn" class="btn btn-secondary">Clear</button>
+                        </div>
+                    </div>
+
+                    <!-- File Upload Tab -->
+                    <div id="fileInputTab" class="tab-content hidden">
+                        <div class="upload-area" id="uploadArea">
+                            <div class="upload-icon">📄</div>
+                            <p class="upload-text">
+                                Drag & drop a file here or click to browse
+                            </p>
+                            <p class="upload-hint">
+                                Supported formats: .txt, .doc, .docx (Max 16MB)
+                            </p>
+                            <input 
+                                type="file" 
+                                id="fileInput" 
+                                accept=".txt,.doc,.docx"
+                                hidden
+                            >
+                            <button id="browseBtn" class="btn btn-primary">Browse Files</button>
+                        </div>
+                        
+                        <!-- Selected File Info -->
+                        <div id="fileInfo" class="file-info hidden">
+                            <div class="file-details">
+                                <span class="file-icon">📎</span>
+                                <div class="file-text">
+                                    <span id="fileName" class="file-name"></span>
+                                    <span id="fileSize" class="file-size"></span>
+                                </div>
+                                <button id="removeFileBtn" class="btn-icon" title="Remove file">✕</button>
+                            </div>
+                            <div class="button-group">
+                                <button id="uploadBtn" class="btn btn-primary">Check File</button>
+                                <button id="cancelUploadBtn" class="btn btn-secondary">Cancel</button>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
